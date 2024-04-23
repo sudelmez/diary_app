@@ -1,4 +1,5 @@
 import 'package:diary_app/core/base/view/base_view.dart';
+import 'package:diary_app/core/component/appbar/appbar.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -11,6 +12,13 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return BaseView();
+    return BaseView(
+      appBar: CustomAppbar(
+        title: "My Notes",
+      ),
+      body: Column(children: [
+        
+      ],),
+    );
   }
 }

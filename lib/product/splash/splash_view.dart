@@ -5,7 +5,6 @@ import '../../core/base/modules/navigation/navigation_service.dart';
 import '../../core/base/state/base_state.dart';
 import '../../core/base/view/base_view.dart';
 
-
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
@@ -16,7 +15,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends BaseState<SplashView> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3)).then((value) => NavigationService.instance.navigateToPage(path: NavigationPaths.home));
+    Future.delayed(const Duration(seconds: 3)).then((value) => NavigationService.instance.navigateToPageClear(path: NavigationPaths.home));
     super.initState();
   }
 
@@ -27,8 +26,7 @@ class _SplashViewState extends BaseState<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView(
-      // scaffoldBackgroundColor: colors.lightPurple,
+    return const BaseView(
       body: Center(child: Icon(Icons.star)),
     );
   }

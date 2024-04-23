@@ -1,6 +1,6 @@
+import 'package:diary_app/product/home/home_view.dart';
 import 'package:diary_app/product/splash/splash_view.dart';
 import 'package:flutter/cupertino.dart';
-import '../../view/base_view.dart';
 import 'navigation_paths.dart';
 
 class NavigationRoute {
@@ -17,9 +17,9 @@ class NavigationRoute {
       case NavigationPaths.splash:
         return normalNavigate(const SplashView());
       case NavigationPaths.home:
-        return normalNavigate(const BaseView());
+        return normalNavigate(const HomeView());
       default:
-        return normalNavigate(const BaseView());
+        return normalNavigate(const SplashView());
     }
   }
 

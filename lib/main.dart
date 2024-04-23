@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'core/base/modules/navigation/navigation_route.dart';
+import 'core/base/modules/navigation/navigation_service.dart';
 import 'product/splash/splash_view.dart';
 
 void main() {
@@ -11,9 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Diary App',
-      home: SplashView(),
+      home: const SplashView(),
+      navigatorKey: NavigationService.instance.navigatorKey,
+      onGenerateRoute: NavigationRoute.instance.generateRoute,
     );
   }
 }
