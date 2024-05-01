@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pusholder/core/base/modules/theme/theme_datas.dart';
+
+import 'theme_datas.dart';
 
 class AppTheme {
   static AppTheme? _instance;

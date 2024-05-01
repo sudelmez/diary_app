@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../component/appbar/appbar.dart';
 import '../state/base_state.dart';
@@ -38,6 +39,10 @@ class BaseView extends StatefulWidget {
 class _BaseViewState extends BaseState<BaseView> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: widget.scaffoldBackgroundColor ?? Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ));
     return ScaffoldWidget(widget.scaffoldBackgroundColor);
   }
 

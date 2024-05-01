@@ -1,3 +1,4 @@
+import 'package:diary_app/core/base/modules/navigation/navigation_paths.dart';
 import 'package:flutter/material.dart';
 import '../../base/modules/navigation/navigation_service.dart';
 import '../../base/state/base_state.dart';
@@ -6,8 +7,14 @@ import '../../base/state/base_state.dart';
 class CustomAppbar extends BaseStateless implements PreferredSizeWidget {
   final bool? isBackbutton;
   final String? title;
+  final bool? isNote;
+  final bool? isDelete;
   final Color? backgroundColor;
+  final Function()? onPressDel;
   CustomAppbar({
+    this.onPressDel,
+    this.isDelete,
+    this.isNote,
     this.backgroundColor,
     super.key,
     this.isBackbutton,
@@ -42,7 +49,7 @@ class CustomAppbar extends BaseStateless implements PreferredSizeWidget {
                   height: size.height,
                   child: Padding(
                     padding: EdgeInsets.only(left: size.width * 0.04, right: size.width * 0.04),
-                    child: Icon(Icons.arrow_back_ios, color: themeData.secondaryHeaderColor),
+                    child: const Icon(Icons.arrow_back_ios, color: Colors.black),
                   ),
                 ),
               )
@@ -51,9 +58,19 @@ class CustomAppbar extends BaseStateless implements PreferredSizeWidget {
         title: title != null
             ? Padding(
                 padding: const EdgeInsets.only(left: 8.0),
-                child: Text(title!, style: themeData.textTheme.labelLarge),
+                child: Text(title!, style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 24)),
               )
             : const SizedBox(),
+        actions: [
+          isNote == true
+              ? IconButton(
+                  onPressed: () {
+                    NavigationService.instance.navigateToPage(path: NavigationPaths.writeNote);
+                  },
+                  icon: const Icon(Icons.edit_note_sharp, size: 30))
+              : const SizedBox(),
+          isDelete == true ? IconButton(onPressed: onPressDel, icon: const Icon(Icons.delete_forever, size: 30)) : const SizedBox()
+        ],
       ),
     );
   }
