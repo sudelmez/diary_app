@@ -1,4 +1,6 @@
 import 'package:diary_app/core/modules/note_pad/note.dart';
+import 'package:diary_app/product/auth/login_view.dart';
+import 'package:diary_app/product/auth/register_view.dart';
 import 'package:diary_app/product/home/home_view.dart';
 import 'package:diary_app/product/note_detail/note_detail_view.dart';
 import 'package:diary_app/product/splash/splash_view.dart';
@@ -21,6 +23,10 @@ class NavigationRoute {
         return normalNavigate(const SplashView());
       case NavigationPaths.home:
         return normalNavigate(const HomeView());
+      case NavigationPaths.phoneAuth:
+        return normalNavigate(const LoginView());
+      case NavigationPaths.register:
+        return normalNavigate(const RegisterView());
       case NavigationPaths.writeNote:
         Map<String, dynamic>? arguments = args.arguments as Map<String, dynamic>?;
         Note? note = arguments?["note"];

@@ -4,4 +4,6 @@ class NavigationPaths {
   static const String splash = '/splash';
   static const String writeNote = '/writeNote';
   static const String noteDetail = '/noteDetail';
+  static const String phoneAuth = '/phoneAuth';
+  static const String register = '/register';
 }
